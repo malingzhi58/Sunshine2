@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sunshine">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Sunshine">
+        <activity android:name=".sunshinemain.SunshineDetailActivity" />
+
+        <service android:name=".sunshinemain.SunshineSyncIntentService"
+            android:exported="false"/>
+
+        <service android:name=".sunshinemain.SunshineFirebaseJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+
+        <activity android:name=".sunshinemain.SunshineMainActivity" />
+
+        <activity android:name=".background.LoginActivity" />
+        <activity android:name=".common.MsgActivity" />
+        <activity android:name=".background.BackUiActivity" />
+        <activity android:name=".background.BroadcastActivity" />
+        <activity android:name=".first.FirstUiActivity" />
+        <activity android:name=".common.FruitActivity" />
+        <activity android:name=".common.CommonUiActivity" />
+        <activity android:name=".common.ListViewActivity" />
+        <activity
+            android:name=".background.BackgroundActivity"
+            android:launchMode="singleTop" /> <!-- This is required for immediate syncs -->
+        <service
+            android:name=".background.sync.WaterReminderFirebaseJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".background.sync.WaterReminderIntentService"
+            android:exported="false" />
+
+        <activity android:name=".database.AddTaskActivity2" />
+        <activity android:name=".RoomActivity" />
+        <activity android:name=".WeatherForthCtntPrv" />
+
+        <provider
+            android:name=".data.WeatherProvider"
+            android:authorities="@string/content_authority_2"
+            android:exported="false" />
+
+        <activity
+            android:name=".todolist.AddTaskActivity"
+            android:label="@string/add_task_activity_name" />
+        <activity android:name=".todolist.T9MainActivity" />
+
+        <provider
+            android:name=".todolist.data.TaskContentProvider"
+            android:authorities="com.example.sunshine.todalist"
+            android:exported="false" />
+
+        <activity android:name=".SQLActivity" />
+        <activity android:name=".EmptyActivity2" />
+        <activity
+            android:name=".TryActivity2"
+            android:label="@string/action_settings"
+            android:parentActivityName=".VisualizerActivity2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".VisualizerActivity2" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/action_settings"
+            android:parentActivityName=".VisualizerActivity2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".VisualizerActivity2" />
+        </activity>
+        <activity android:name=".VisualizerActivity2" />
+        <activity
+            android:name=".WeatherThirdLoader"
+            android:launchMode="singleTop" />
+        <activity android:name=".AsycLoaderActivity2" />
+        <activity android:name=".QueryActivity2" />
+        <activity android:name=".first.LifeCycleActivity2" />
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".first.WeatherSecond" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".first.WeatherFirstActivity" />
+    </application>
+
+</manifest>
